@@ -67,6 +67,20 @@ spec:
             secretKeyRef:
               name:  {{ template "oauth2-proxy.fullname" . }}
               key: cookie-secret
+        {{ if .Values.config.dingtalkCorpID }}
+        - name: OAUTH2_PROXY_DINGTALK_CORPID
+          valueFrom:
+            secretKeyRef:
+              name:  {{ template "oauth2-proxy.fullname" . }}
+              key: dingtalk-corpid
+        {{ end }}
+        {{ if .Values.config.dingtalkCorpSecret }}
+        - name: OAUTH2_PROXY_DINGTALK_CORPSECRET
+          valueFrom:
+            secretKeyRef:
+              name:  {{ template "oauth2-proxy.fullname" . }}
+              key: dingtalk-corpsecret
+        {{ end }}
         ports:
           - containerPort: 4180
             name: http

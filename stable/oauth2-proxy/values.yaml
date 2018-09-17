@@ -12,6 +12,9 @@ config:
   #   pass_basic_auth = false
   #   pass_access_token = true
   configFile: ""
+  # required options for dingtalk
+  #dingtalkCorpID: "corpid"
+  #dingtalkCorpSecret: "corpsecret"
 
 image:
   repository: "a5huynh/oauth2_proxy"
